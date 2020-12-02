@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bitcoin-hands-on-dev
+    volumes:
+      - bitcoin-hands-on_sync:/app:nocopy
+      - bundler_cache:/usr/local/bundle
+    entrypoint: []
+    # env_file:
+    #   - .env.development
+    stdin_open: true
+    tty: true
+
+volumes:
+  bundler_cache:
+
+  bitcoin-hands-on_sync:
+    external: true
